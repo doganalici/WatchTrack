@@ -38,7 +38,7 @@ namespace WatchTrack
                 $"Yılı : {Year}\n" +
                 $"Yönetmeni : {Director}\n" +
                 $"İzlendi Mi? : {status}");
-            Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
+            Console.WriteLine("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
         }
 
     }
