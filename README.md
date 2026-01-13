@@ -63,29 +63,86 @@ Yeni film eklerken:
 Bu sayede tekrarlayan kayıtların önüne geçildi.
 <hr>
 
-🎯 Öğrenme Hedefleri
+✔️ Film Silme (ID ile)
 
-Bu proje boyunca amaçlanan şeyler:
+* Artık kullanıcı, filmleri ID numarasına göre silebiliyor.
+    * ID listede yoksa uyarı veriliyor
+    * Bulunan film listeden kaldırılıyor
+    * İşlem sonunda bilgilendirme mesajı gösteriliyor
+<hr>
 
-* List ve koleksiyon yönetimi
-* LINQ’e pratik bir giriş
-* Menü tabanlı console uygulamaları
-* Basit CRUD işlemleri
-* Kodun katmanlara ayrılması (Manager mantığı)
+✔️ Tüm Filmleri Listeleme
+
+* Listeye eklenen tüm filmler ekranda şu formatta görüntüleniyor:
+```  
+ID
+Adı
+Türü
+Yılı
+Yönetmeni
+İzlendi mi?
+```
+<hr>
+
+✔️ Film Arama (İsme Göre) — LINQ ile
+
+* Kullanıcı bir anahtar kelime girerek film arayabiliyor.
+    * Büyük/küçük harfe duyarsız
+    * Sonuç yoksa uyarı mesajı gösteriliyor
+* LINQ kullanıldı: Where, ToList
+
+<hr>
+
+✔️ İzleme Durumunu İşaretleme
+
+* Bir film:
+    * İzlendi
+    * İzlenmedi
+olarak işaretlenebiliyor.
+
+* Ekstra olarak :<br>
+➡️ Eğer film zaten aynı (İzlendi/İzlenmedi) durumdaysa, kullanıcıya uyarı veriliyor.
+
+Bu sayede gereksiz işlemler engellendi.
+<hr>
+
+🧠 Teknik Olarak Neler Öğrenildi
+
+Bu aşamada kazanılan ek konular:
+
+* First, FirstOrDefault, Any
+* Koleksiyonda arama ve filtreleme
+* Kullanıcı girdisi doğrulama
+* Duruma göre mesaj yönetimi
+* Basit koruyucu kontroller (guard clauses)
 <hr>
 
 🗺️ Sonraki Adımlar (Planlananlar)
 
-➕ Yeni film ekleme ekranını tamamen tamamlamak<br>
-❌ Film silme işlemini yazmak<br>
-🔍 Film arama (LINQ ile)<br>
-👁 İzlendi / izlenmedi durumunu değiştirme<br>
-💾 Verileri dosyada saklama (ileride)<br>
-🧹 Kod yapısını daha da temizlemek
+🔍 Gelişmiş Arama
+* 🎯 Yıla göre arama
+* 🔎 ID’ye göre arama
+* 🏷️ Tür bazlı filtreleme
+  
+<br>✏️ Film Güncelleme
+Var olan filmler üzerinde bilgi düzenleme:
+* Ad
+* Tür
+* Yıl
+* Yönetmen
+
+<br>👁 Filmleri Duruma Göre Listeleme
+* Sadece izlenenler
+* Sadece izlenmeyenler
+
+<br>💾 Kalıcı Veri Saklama<br>
+Uygulama kapandıktan sonra filmler kaybolmasın:
+* JSON / TXT dosyasına kaydetme
+* Açılışta otomatik yükleme
 <hr>
 
 📌 Not
 
-Bu proje öğrenme amaçlıdır ve süreç ilerledikçe düzenli olarak güncellenecektir.<br>
+Proje, öğrenme odaklıdır ve adım adım geliştirilmeye devam etmektedir.<br>
 Yeni özellikler eklendikçe README de genişletilecektir.
 <hr>
