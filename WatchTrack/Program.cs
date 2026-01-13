@@ -13,29 +13,30 @@ namespace WatchTrack
             Console.WriteLine("\t FİLM TAKİP UYGULAMASI");
             Console.WriteLine("\t-----------------------");
             MediaManager mediaManager = new MediaManager();
-            List<MediaItem> films = new List<MediaItem>()
-            {
-                new MediaItem{Id=1,Name="There Will Be Blood (Kan Dökülecek)",Type="Dram, Trajedi",Year="2007",Director="Paul Thomas Anderson",IsWatched=false},
+            //List<MediaItem> films = new List<MediaItem>()
+            //{
+            //    new MediaItem{Id=1,Name="There Will Be Blood (Kan Dökülecek)",Type="Dram, Trajedi",Year="2007",Director="Paul Thomas Anderson",IsWatched=false},
 
-                new MediaItem{Id=2,Name="Hutter Island (Zindan Adası)",Type="Gizem, Dram",Year="2010",Director="Martin Scorsese",IsWatched=false},
+            //    new MediaItem{Id=2,Name="Hutter Island (Zindan Adası)",Type="Gizem, Dram",Year="2010",Director="Martin Scorsese",IsWatched=false},
 
-                new MediaItem{Id=3,Name="1917",Type="Tarihi Drama, Savaş, Aksiyon",Year="2019",Director="Sam Mendes",IsWatched=false},
+            //    new MediaItem{Id=3,Name="1917",Type="Tarihi Drama, Savaş, Aksiyon",Year="2019",Director="Sam Mendes",IsWatched=false},
 
-                new MediaItem{Id=4,Name="Intouchables (Can Dostum)",Type="Gerçek Hikaye, Komedi, Drama",Year="2011",Director="Olivier Nakache, Éric Toledano",IsWatched=false},
+            //    new MediaItem{Id=4,Name="Intouchables (Can Dostum)",Type="Gerçek Hikaye, Komedi, Drama",Year="2011",Director="Olivier Nakache, Éric Toledano",IsWatched=false},
 
-            };
+            //};
 
             bool state = true;
             while (state)
             {
-                Console.WriteLine("Menüden 1-7 arasında bir  tuşlama yapınız\n");
+                Console.WriteLine("Menüden 1-8 arasında bir  tuşlama yapınız\n");
                 Console.WriteLine("1 - Film Ekleme\n" +
                     "2 - Film Silme\n" +
-                    "3 - Tüm Filmleri Listeleme\n" +
-                    "4 - Film Arama\n" +
-                    "5 - Filmi İzlendi Olarak İşaretleme\n" +
-                    "6 - Filmi İzlenmedi Olarak İşaretleme\n" +
-                    "7 - Çıkış");
+                    "3 - Film Güncelleme\n" +
+                    "4 - Tüm Filmleri Listeleme\n" +
+                    "5 - Film Arama\n" +
+                    "6 - Filmi İzlendi Olarak İşaretleme\n" +
+                    "7 - Filmi İzlenmedi Olarak İşaretleme\n" +
+                    "8 - Çıkış");
                 Console.Write("Seçiminiz : ");
                 int option;
                 while (!int.TryParse(Console.ReadLine(), out option))
@@ -99,6 +100,13 @@ namespace WatchTrack
                         Console.Clear();
                         break;
                     case 3:
+                        Console.WriteLine("FİLM GÜNCELLEME");
+                        Console.WriteLine("---------------");
+
+
+                        Console.Clear();
+                        break;
+                    case 4:
                         Console.Clear();
                         Console.WriteLine("TÜM FİLMLERİ LİSTELEME");
                         Console.WriteLine("----------------------");
@@ -107,18 +115,58 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 4:
+                    case 5:
                         Console.Clear();
                         Console.WriteLine("FİLM ARAMA");
                         Console.WriteLine("----------");
-                        Console.Write("Filmin adını yazınız : ");
-                        string keyword = Console.ReadLine();
-                        mediaManager.Search(keyword);
+                        Console.WriteLine("Lütfen arama yapmak istediğiniz türü seçiniz");
+                        Console.WriteLine("1 - Film adına göre arama");
+                        Console.WriteLine("2 - Film yılına göre arama");
+                        Console.WriteLine("3 - Film türüne göre arama");
+                        Console.WriteLine("4 - Film yönetmenine göre arama");
+                        Console.Write("Seçiminiz : ");
+                        int optionSearch;
+                        while (!int.TryParse(Console.ReadLine(), out optionSearch))
+                        {
+                            Console.Write("Hatalı giriş! Lütfen sayı giriniz: ");
+                        }
+                        switch (optionSearch)
+                        {
+                            case 1:
+                                Console.Clear();
+                                Console.Write("Filmin adını yazınız : ");
+                                string keyword = Console.ReadLine();
+                                mediaManager.Search(keyword);
+                                break;
+                            case 2:
+                                Console.Clear();
+                                Console.Write("Filmin yılını yazınız : ");
+                                string searchYear = Console.ReadLine();
+                                mediaManager.SearchYear(searchYear);
+                                break;
+                            case 3:
+                                Console.Clear();
+                                Console.Write("Filmin kategorisini yazınız : ");
+                                string searchType = Console.ReadLine();
+                                mediaManager.SearchType(searchType);
+                                break;
+                            case 4:
+                                Console.Clear();
+                                Console.Write("Filmin yönetmeninin yazınız : ");
+                                string searchDirector = Console.ReadLine();
+                                mediaManager.SearchDirector(searchDirector);
+                                break;
+                            default:
+                                Console.Clear();
+                                Console.WriteLine("Menü dışındaki bir rakam tuşlaması yaptınız. Lütfen tekrar deneyin!!!\n");
+                                break;
+                        }
+
                         Console.WriteLine("Devam etmek için bir tuşa basınız...");
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 5:
+                    case 6:
                         Console.Clear();
                         Console.WriteLine("FİLMİ İZLENDİ OLARAK İŞARETLEME");
                         Console.WriteLine("-------------------------------");
@@ -133,7 +181,7 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 6:
+                    case 7:
                         Console.Clear();
                         Console.WriteLine("FİLMİ İZLENMEDİ OLARAK İŞARETLEME");
                         Console.WriteLine("---------------------------------");
@@ -148,7 +196,7 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 7:
+                    case 8:
                         Console.Write("Çıkış yapılıyor. Lütfen bir tuşa basınız");
                         state = false;
                         break;

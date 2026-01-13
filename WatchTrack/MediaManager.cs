@@ -43,7 +43,7 @@ namespace WatchTrack
 
             if (result.Count == 0)
             {
-                Console.WriteLine("X Aradığınız kriterde bir film bulunamadı.");
+                Console.WriteLine("X Aradığınız kriterde film/filmler bulunamadı.");
                 return;
             }
             foreach (var film in result)
@@ -52,6 +52,47 @@ namespace WatchTrack
             }
         }
 
+        public void SearchYear(string year)
+        {
+            var result = _films.Where(f => f.Year == year).ToList();
+            if (result.Count == 0)
+            {
+                Console.WriteLine("X Aradığınız kriterde film/filmler bulunamadı.");
+                return;
+            }
+            foreach (var film in result)
+            {
+                film.DisplayInfo();
+            }
+        }
+
+        public void SearchType(string type)
+        {
+            var result = _films.Where(f => f.Type.ToLower().Contains(type.ToLower())).ToList();
+            if (result.Count == 0)
+            {
+                Console.WriteLine("X Aradığınız kriterde film/filmler bulunamadı.");
+                return;
+            }
+            foreach (var film in result)
+            {
+                film.DisplayInfo();
+            }
+        }
+
+        public void SearchDirector(string director)
+        {
+            var result = _films.Where(f => f.Director.ToLower().Contains(director.ToLower())).ToList();
+            if (result.Count == 0)
+            {
+                Console.WriteLine("X Aradığınız kriterde film/filmler bulunamadı.");
+                return;
+            }
+            foreach (var film in result)
+            {
+                film.DisplayInfo();
+            }
+        }
         public void Delete(int id)
         {
             var film = _films.FirstOrDefault(f => f.Id == id);
@@ -59,9 +100,6 @@ namespace WatchTrack
             if (film == null)
             {
                 Console.WriteLine("X Silmek istedğiniz film listede bulunamadı.");
-                Console.WriteLine("Devam etmek için bir tuşa basınız...");
-                Console.ReadKey();
-                Console.Clear();
                 return;
             }
 
@@ -77,9 +115,6 @@ namespace WatchTrack
             if (film == null)
             {
                 Console.WriteLine("X Film listede bulunamadı.");
-                Console.WriteLine("Devam etmek için bir tuşa basınız...");
-                Console.ReadKey();
-                Console.Clear();
                 return;
             }
             if (film.IsWatched == isWatched)
