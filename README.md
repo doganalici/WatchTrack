@@ -20,12 +20,6 @@ Uygulamada saklanan her film için bir model oluşturuldu:
 Ayrıca her film için bilgileri temiz bir formatla gösteren bir DisplayInfo metodu eklendi.
 <hr>
 
-✔️ Başlangıç Film Listesi
-
-Uygulama açıldığında, örnek birkaç film otomatik olarak listeye ekleniyor.<br>
-Bu sayede uygulama ilk çalıştırmadan itibaren listeleme ve görüntüleme işlemleri yapılabiliyor.
-<hr>
-
 ✔️ Menü Yapısı (Uygulama Akışı)
 
 Kullanıcı için ana menü tasarlandı:
