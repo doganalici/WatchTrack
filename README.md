@@ -20,23 +20,18 @@ Uygulamada saklanan her film için bir model oluşturuldu:
 Ayrıca her film için bilgileri temiz bir formatla gösteren bir DisplayInfo metodu eklendi.
 <hr>
 
-✔️ Başlangıç Film Listesi
-
-Uygulama açıldığında, örnek birkaç film otomatik olarak listeye ekleniyor.<br>
-Bu sayede uygulama ilk çalıştırmadan itibaren listeleme ve görüntüleme işlemleri yapılabiliyor.
-<hr>
-
 ✔️ Menü Yapısı (Uygulama Akışı)
 
 Kullanıcı için ana menü tasarlandı:
 
 1️⃣ Yeni film ekleme<br>
 2️⃣ Film silme<br>
-3️⃣ Tüm filmleri listeleme<br>
-4️⃣ Film arama<br>
-5️⃣ Filmi “İzlendi” olarak işaretleme<br>
-6️⃣ Filmi “İzlenmedi” olarak işaretleme<br>
-7️⃣ Çıkış<br>
+3️⃣ Film güncelleme<br>
+4️⃣ Tüm filmleri listeleme<br>
+5️⃣ Film arama<br>
+6️⃣ Filmi “İzlendi” olarak işaretleme<br>
+7️⃣ Filmi “İzlenmedi” olarak işaretleme<br>
+8️⃣ Çıkış<br>
 
 Menü, kullanıcı hatalı giriş yaptığında yönlendirme yapacak şekilde hazırlandı.
 <hr>
@@ -84,26 +79,40 @@ Yönetmeni
 ```
 <hr>
 
-✔️ Film Arama (İsme Göre) — LINQ ile
+✔️ Film Arama — LINQ ile
 
-* Kullanıcı bir anahtar kelime girerek film arayabiliyor.
-    * Büyük/küçük harfe duyarsız
-    * Sonuç yoksa uyarı mesajı gösteriliyor
+🔍 Gelişmiş Film Arama & Filtreleme<br>
+Uygulamaya, kullanıcı deneyimini artırmak için gelişmiş arama seçenekleri eklendi.
+
+🔎 Arama Türleri<br>
+Kullanıcı artık film arama işlemini tek bir menü üzerinden, farklı kriterlere göre yapabiliyor:
+
+🎬 Film adına göre arama<br>
+📅 Film yılına göre arama<br>
+🏷️ Film türüne göre arama<br>
+🎥 Film yönetmenine göre arama<br>
+
+Her arama işlemi:
+* Büyük/küçük harf duyarsızdır
+* Kısmi eşleşmeleri destekler (örn: “nolan” → “Christopher Nolan”)
+* Sonuç bulunamazsa kullanıcı bilgilendirilir
 * LINQ kullanıldı: Where, ToList
-
 <hr>
 
-✔️ İzleme Durumunu İşaretleme
+✔️ İzleme Durumunu İşaretleme 
+
+👁️ Filmler için izlendi / izlenmedi durumu yönetimi eklendi. 
 
 * Bir film:
-    * İzlendi
-    * İzlenmedi
-olarak işaretlenebiliyor.
+    * İzlendi olarak işaretlenebilir
+    * İzlenmedi olarak geri alınabilir
+* Eğer film zaten aynı (İzlendi/İzlenmedi) durumdaysa:
+    * Kullanıcıya uyarı mesajı gösterilir
+    * Gereksiz işlem yapılmaz
+Bu sayede:
+* Veri tutarlılığı korunur
+* Kullanıcı hatalarının önüne geçilir
 
-* Ekstra olarak :<br>
-➡️ Eğer film zaten aynı (İzlendi/İzlenmedi) durumdaysa, kullanıcıya uyarı veriliyor.
-
-Bu sayede gereksiz işlemler engellendi.
 <hr>
 
 🧠 Teknik Olarak Neler Öğrenildi
@@ -119,11 +128,6 @@ Bu aşamada kazanılan ek konular:
 
 🗺️ Sonraki Adımlar (Planlananlar)
 
-🔍 Gelişmiş Arama
-* 🎯 Yıla göre arama
-* 🔎 ID’ye göre arama
-* 🏷️ Tür bazlı filtreleme
-  
 <br>✏️ Film Güncelleme
 Var olan filmler üzerinde bilgi düzenleme:
 * Ad
