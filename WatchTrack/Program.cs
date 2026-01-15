@@ -100,10 +100,65 @@ namespace WatchTrack
                         Console.Clear();
                         break;
                     case 3:
+                        Console.Clear();
                         Console.WriteLine("FİLM GÜNCELLEME");
                         Console.WriteLine("---------------");
+                        Console.Write("Güncellenecek Filmin ID numarasını giriniz : ");
+                        int updateId;
+                        while (!int.TryParse(Console.ReadLine(), out updateId))
+                        {
+                            Console.Write("Hatalı giriş! Lütfen sayı giriniz: ");
+                        }
+                        bool isFound = mediaManager.ShowFilm(updateId);
 
+                        if (!isFound)
+                        {
+                            Console.WriteLine("Devam etmek için bir tuşa basınız...");
+                            Console.ReadKey();
+                            Console.Clear();
+                            break;
+                        }
 
+                        Console.WriteLine("\nGüncellenecek Alanı Seçiniz");
+                        Console.WriteLine("1 - Film Adı\n" +
+                            "2 - Film Türü\n" +
+                            "3 - Film Yılı\n" +
+                            "4 - Film Yönetmeni");
+                        Console.Write("Seçiminiz : ");
+                        int updateOption;
+                        while (!int.TryParse(Console.ReadLine(), out updateOption))
+                        {
+                            Console.Write("Hatalı giriş! Lütfen sayı giriniz: ");
+                        }
+                        switch (updateOption)
+                        {
+                            case 1:
+                                Console.Write("\nGüncel film adını giriniz : ");
+                                string updateName = Console.ReadLine();
+                                mediaManager.UpdateFilmName(updateId, updateName);
+                                break;
+                            case 2:
+                                Console.Write("\nGüncel film türünü giriniz : ");
+                                string updateType = Console.ReadLine();
+                                mediaManager.UpdateFilmType(updateId, updateType);
+                                break;
+                            case 3:
+                                Console.Write("\nGüncel film yılını giriniz : ");
+                                string updateYear = Console.ReadLine();
+                                mediaManager.UpdateFilmYear(updateId, updateYear);
+                                break;
+                            case 4:
+                                Console.Write("\nGüncel film yönetmenini giriniz : ");
+                                string updateDirector = Console.ReadLine();
+                                mediaManager.UpdateFilmDirector(updateId, updateDirector);
+                                break;
+                            default:
+                                Console.Clear();
+                                Console.WriteLine("Menü dışındaki bir rakam tuşlaması yaptınız. Lütfen tekrar deneyin!!!\n");
+                                break;
+                        }
+                        Console.WriteLine("Devam etmek için bir tuşa basınız...");
+                        Console.ReadKey();
                         Console.Clear();
                         break;
                     case 4:
