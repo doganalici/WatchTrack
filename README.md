@@ -24,7 +24,7 @@ Ayrıca her film için bilgileri temiz bir formatla gösteren bir DisplayInfo me
 
 Kullanıcı için ana menü tasarlandı:
 
-1️⃣ Yeni film ekleme<br>
+1️⃣ Film ekleme<br>
 2️⃣ Film silme<br>
 3️⃣ Film güncelleme<br>
 4️⃣ Tüm filmleri listeleme<br>
@@ -64,6 +64,48 @@ Bu sayede tekrarlayan kayıtların önüne geçildi.
     * ID listede yoksa uyarı veriliyor
     * Bulunan film listeden kaldırılıyor
     * İşlem sonunda bilgilendirme mesajı gösteriliyor
+<hr>
+
+✔️ Film Güncelleme (Update) Özelliği<br>
+
+🔄 Bu güncelleme ile birlikte, film bilgileri ID üzerinden seçilerek güvenli bir şekilde güncellenebilmektedir.
+
+📌 Güncelleme Akışı
+
+1.  Kullanıcı güncellemek istediği filmin ID numarasını girer. <br>
+2.  Film sistemde varsa, mevcut bilgiler ekranda gösterilir. <br>
+3.  Kullanıcı hangi alanı güncellemek istediğini seçer. <br>
+4.  Girilen yeni değerler kontrollerden geçirilerek güncellenir. <br>
+5.  Güncelleme sonrası film bilgileri ekranda tekrar gösterilir. <br>
+
+🛠️ Güncellenebilen Alanlar
+
+*  Film Adı
+*  Film Türü
+*  Film Yılı
+*  Film Yönetmeni
+
+Her güncelleme işleminde;
+
+*  Film var mı kontrol edilir
+*  Boş giriş engellenir
+*  Eski değer ile aynı giriş yapılması engellenir
+
+🧠 Kullanılan Yapılar & Kavramlar
+
+*  List<T> ile koleksiyon yönetimi
+*  LINQ (FirstOrDefault) ile veri bulma
+*  if yapıları ile validation (doğrulama)
+*  switch-case ile menü kontrolü
+*  Metot bazlı Single Responsibility yaklaşımı
+*  bool dönüşlü metot ile akış kontrolü (ShowFilm)
+
+📺 Örnek Kullanıcı Deneyimi
+
+*  Güncelleme öncesi film bilgileri gösterilir
+*  Güncelleme işlemi yapılır
+*  Güncellenmiş film bilgileri anında ekrana yazdırılır
+  
 <hr>
 
 ✔️ Tüm Filmleri Listeleme
@@ -115,6 +157,7 @@ Bu sayede:
 
 <hr>
 
+
 🧠 Teknik Olarak Neler Öğrenildi
 
 Bu aşamada kazanılan ek konular:
@@ -127,13 +170,6 @@ Bu aşamada kazanılan ek konular:
 <hr>
 
 🗺️ Sonraki Adımlar (Planlananlar)
-
-<br>✏️ Film Güncelleme
-Var olan filmler üzerinde bilgi düzenleme:
-* Ad
-* Tür
-* Yıl
-* Yönetmen
 
 <br>👁 Filmleri Duruma Göre Listeleme
 * Sadece izlenenler
