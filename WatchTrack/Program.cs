@@ -11,7 +11,7 @@ namespace WatchTrack
         static void Main(string[] args)
         {
             Console.WriteLine("\t FİLM TAKİP UYGULAMASI");
-            Console.WriteLine("\t-----------------------");
+            Console.WriteLine("\t=======================");
             MediaManager mediaManager = new MediaManager();
             //List<MediaItem> films = new List<MediaItem>()
             //{
@@ -28,15 +28,17 @@ namespace WatchTrack
             bool state = true;
             while (state)
             {
-                Console.WriteLine("Menüden 1-8 arasında bir  tuşlama yapınız\n");
+                Console.WriteLine("Menüden 1-10 arasında bir  tuşlama yapınız\n");
                 Console.WriteLine("1 - Film Ekleme\n" +
                     "2 - Film Silme\n" +
                     "3 - Film Güncelleme\n" +
                     "4 - Tüm Filmleri Listeleme\n" +
-                    "5 - Film Arama\n" +
-                    "6 - Filmi İzlendi Olarak İşaretleme\n" +
-                    "7 - Filmi İzlenmedi Olarak İşaretleme\n" +
-                    "8 - Çıkış");
+                    "5 - İzlenen Filmleri Listeleme\n" +
+                    "6 - İzlenmeyen Filmleri Listeleme\n" +
+                    "7 - Film Arama\n" +
+                    "8 - Filmi İzlendi Olarak İşaretleme\n" +
+                    "9 - Filmi İzlenmedi Olarak İşaretleme\n" +
+                    "10 - Çıkış");
                 Console.Write("Seçiminiz : ");
                 int option;
                 while (!int.TryParse(Console.ReadLine(), out option))
@@ -172,6 +174,24 @@ namespace WatchTrack
                         break;
                     case 5:
                         Console.Clear();
+                        Console.WriteLine("İZLENEN FİLMLER");
+                        Console.WriteLine("---------------");
+                        mediaManager.WatchedListAll();
+                        Console.WriteLine("Devam etmek için bir tuşa basınız...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        Console.WriteLine("İZLENMEYEN FİLMLER");
+                        Console.WriteLine("------------------");
+                        mediaManager.NotWatchedListAll();
+                        Console.WriteLine("Devam etmek için bir tuşa basınız...");
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+                    case 7:
+                        Console.Clear();
                         Console.WriteLine("FİLM ARAMA");
                         Console.WriteLine("----------");
                         Console.WriteLine("Lütfen arama yapmak istediğiniz türü seçiniz");
@@ -221,7 +241,7 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 6:
+                    case 8:
                         Console.Clear();
                         Console.WriteLine("FİLMİ İZLENDİ OLARAK İŞARETLEME");
                         Console.WriteLine("-------------------------------");
@@ -236,7 +256,7 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 7:
+                    case 9:
                         Console.Clear();
                         Console.WriteLine("FİLMİ İZLENMEDİ OLARAK İŞARETLEME");
                         Console.WriteLine("---------------------------------");
@@ -251,7 +271,7 @@ namespace WatchTrack
                         Console.ReadKey();
                         Console.Clear();
                         break;
-                    case 8:
+                    case 10:
                         Console.Write("Çıkış yapılıyor. Lütfen bir tuşa basınız");
                         state = false;
                         break;

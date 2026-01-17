@@ -36,7 +36,35 @@ namespace WatchTrack
                 film.DisplayInfo();
             }
         }
+        public bool IsWatched { get; set; }
+        public void WatchedListAll()
+        {
+            var watchedFilms = _films.Where(f => f.IsWatched).ToList();
+            if (!watchedFilms.Any())
+            {
+                Console.WriteLine("X Listede film bulunmuyor");
+                return;
+            }
+            foreach (var film in watchedFilms)
+            {
+                film.DisplayInfo();
+            }
 
+        }
+        public void NotWatchedListAll()
+        {
+            var notWatchedFilms = _films.Where(f => !f.IsWatched).ToList();
+            if (!notWatchedFilms.Any())
+            {
+                Console.WriteLine("X Listede film bulunmuyor");
+                return;
+            }
+            foreach (var film in notWatchedFilms)
+            {
+                film.DisplayInfo();
+            }
+
+        }
         public void Search(string keyword)
         {
             var result = _films.Where(f => f.Name.ToLower().Contains(keyword.ToLower())).ToList();
