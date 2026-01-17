@@ -236,7 +236,6 @@ namespace WatchTrack
                                 Console.WriteLine("Menü dışındaki bir rakam tuşlaması yaptınız. Lütfen tekrar deneyin!!!\n");
                                 break;
                         }
-
                         Console.WriteLine("Devam etmek için bir tuşa basınız...");
                         Console.ReadKey();
                         Console.Clear();
