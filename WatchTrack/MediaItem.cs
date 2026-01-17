@@ -24,6 +24,7 @@ namespace WatchTrack
             Director = director;
             IsWatched = isWatched;
         }
+
         public MediaItem()
         {
 

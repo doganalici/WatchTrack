@@ -3,12 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace WatchTrack
 {
     public class MediaManager
     {
+        private const string FileName = "films.json";
         private List<MediaItem> _films = new List<MediaItem>();
+
+        public MediaManager()
+        {
+            if (File.Exists(FileName))
+            {
+                string json = File.ReadAllText(FileName);
+                _films = JsonSerializer.Deserialize<List<MediaItem>>(json)
+                         ?? new List<MediaItem>();
+            }
+            else
+            {
+                _films = new List<MediaItem>();
+            }
+        }
+
+        private void SaveToJson()
+        {
+            var options = new JsonSerializerOptions
+            {
+                WriteIndented = true
+            };
+
+            string json = JsonSerializer.Serialize(_films, options);
+            File.WriteAllText(FileName, json);
+        }
+
         public void Add(MediaItem film)
         {
             if (_films.Any(f => f.Id == film.Id))
@@ -21,6 +50,7 @@ namespace WatchTrack
             }
 
             _films.Add(film);
+            SaveToJson();
             Console.WriteLine("> Film başarıyla eklendi!");
         }
 
@@ -36,7 +66,7 @@ namespace WatchTrack
                 film.DisplayInfo();
             }
         }
-        public bool IsWatched { get; set; }
+        
         public void WatchedListAll()
         {
             var watchedFilms = _films.Where(f => f.IsWatched).ToList();
@@ -133,6 +163,7 @@ namespace WatchTrack
 
 
             _films.Remove(film);
+            SaveToJson();
             Console.WriteLine($"> {film.Name} isimli film başarıyla silindi!");
         }
 
@@ -154,6 +185,7 @@ namespace WatchTrack
             }
 
             film.IsWatched = isWatched;
+            SaveToJson();
             Console.WriteLine($"> {film.Name} filmi \"{(isWatched ? "İzlendi" : "İzlenmedi")}\" olarak işaretlendi.");
         }
 
@@ -190,6 +222,7 @@ namespace WatchTrack
                 return;
             }
             film.Name = newName;
+            SaveToJson();
             Console.WriteLine("> Film adı başarıyla güncellendi");
             Console.WriteLine("--------------------------------\n");
             film.DisplayInfo();
@@ -216,6 +249,7 @@ namespace WatchTrack
                 return;
             }
             film.Type = newType;
+            SaveToJson();
             Console.WriteLine("> Film türü başarıyla güncellendi");
             Console.WriteLine("---------------------------------\n");
             film.DisplayInfo();
@@ -242,6 +276,7 @@ namespace WatchTrack
                 return;
             }
             film.Year = newYear;
+            SaveToJson();
             Console.WriteLine("> Film yılı başarıyla güncellendi");
             Console.WriteLine("---------------------------------\n");
             film.DisplayInfo();
@@ -268,6 +303,7 @@ namespace WatchTrack
                 return;
             }
             film.Director = newDirector;
+            SaveToJson();
             Console.WriteLine("> Film yönetmeni başarıyla güncellendi");
             Console.WriteLine("--------------------------------------\n");
             film.DisplayInfo();

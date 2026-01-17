@@ -82,6 +82,7 @@ namespace WatchTrack
                         };
 
                         mediaManager.Add(newFilm);
+
                         Console.WriteLine("Devam etmek için bir tuşa basınız...");
                         Console.ReadKey();
                         Console.Clear();
@@ -271,11 +272,13 @@ namespace WatchTrack
                         Console.Clear();
                         break;
                     case 10:
-                        Console.Write("Çıkış yapılıyor. Lütfen bir tuşa basınız");
+                        Console.Write("Çıkış yapılıyor... Lütfen bir tuşa basınız");
                         state = false;
                         break;
                     default:
                         Console.Clear();
+                        Console.WriteLine("\t FİLM TAKİP UYGULAMASI");
+                        Console.WriteLine("\t=======================\n");
                         Console.WriteLine("Menü dışındaki bir rakam tuşlaması yaptınız. Lütfen tekrar deneyin!!!\n");
                         break;
                 }
