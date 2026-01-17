@@ -209,7 +209,7 @@ Bu aşamada kazanılan ek konular:
 🗺️ Sonraki Adımlar (Planlananlar)
 
 Şuan için planlanan farklı bir geliştirme bulunmamaktadır
-
+<hr>
 📌 Not
 
 Proje, öğrenme odaklıdır ve adım adım geliştirilmeye devam etmektedir.<br>
