@@ -28,15 +28,17 @@ Kullanıcı için ana menü tasarlandı:
 2️⃣ Film silme<br>
 3️⃣ Film güncelleme<br>
 4️⃣ Tüm filmleri listeleme<br>
-5️⃣ Film arama<br>
-6️⃣ Filmi “İzlendi” olarak işaretleme<br>
-7️⃣ Filmi “İzlenmedi” olarak işaretleme<br>
-8️⃣ Çıkış<br>
+5️⃣ İzlenen filmleri listeleme<br>
+6️⃣ İzlenmeyen filmleri listeleme<br>
+7️⃣ Film arama<br>
+8️⃣ Filmi “İzlendi” olarak işaretleme<br>
+9️⃣ Filmi “İzlenmedi” olarak işaretleme<br>
+🔟 Çıkış<br>
 
 Menü, kullanıcı hatalı giriş yaptığında yönlendirme yapacak şekilde hazırlandı.
 <hr>
 
-✔️ FilmManager Sınıfı
+✔️ MediaManager Sınıfı
 
 Film işlemlerinin yönetimi için ayrı bir sınıf oluşturuldu.<br>
 Bu yapı sayesinde:
@@ -121,6 +123,14 @@ Yönetmeni
 ```
 <hr>
 
+✔️ İzlenen / İzlenmeyen Film Listeleri
+
+📋 Menü üzerinden ayrı ayrı:
+  * Sadece izlenen filmler
+  * Sadece izlenmeyen filmler
+listeleme yapılabilmektedir.
+
+<hr>
 ✔️ Film Arama — LINQ ile
 
 🔍 Gelişmiş Film Arama & Filtreleme<br>
@@ -170,10 +180,6 @@ Bu aşamada kazanılan ek konular:
 <hr>
 
 🗺️ Sonraki Adımlar (Planlananlar)
-
-<br>👁 Filmleri Duruma Göre Listeleme
-* Sadece izlenenler
-* Sadece izlenmeyenler
 
 <br>💾 Kalıcı Veri Saklama<br>
 Uygulama kapandıktan sonra filmler kaybolmasın:
