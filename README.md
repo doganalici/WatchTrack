@@ -167,6 +167,33 @@ Bu sayede:
 
 <hr>
 
+✔️ Veri Kaydetme (JSON)
+
+💾 Bu projede filmler JSON dosyası kullanılarak kalıcı olarak saklanmaktadır.<br>
+*  Film ekleme, silme, güncelleme ve izlenme durumu değişiklikleri otomatik olarak kaydedilir.
+*  Uygulama kapatılıp tekrar açıldığında filmler silinmez.
+*  Veriler films.json dosyasında tutulur.
+
+📂 JSON dosyasının konumu:
+```
+bin/Debug/netX.X/films.json
+```
+⚠️ Not:
+*  films.json dosyası çalışma anında oluşturulduğu için Visual Studio Solution Explorer içinde görünmez.
+*  Dosya, uygulama çalıştırıldıktan sonra ilgili klasörde otomatik olarak oluşur.
+
+<hr>
+
+🛠 Kullanılan Teknolojiler
+
+*  C# Console Application
+*  .NET
+*  System.Text.Json
+*  Nesne Yönelimli Programlama (OOP)
+*  LINQ
+*  Dosya işlemleri (File IO)
+
+<hr>
 
 🧠 Teknik Olarak Neler Öğrenildi
 
@@ -181,11 +208,7 @@ Bu aşamada kazanılan ek konular:
 
 🗺️ Sonraki Adımlar (Planlananlar)
 
-<br>💾 Kalıcı Veri Saklama<br>
-Uygulama kapandıktan sonra filmler kaybolmasın:
-* JSON / TXT dosyasına kaydetme
-* Açılışta otomatik yükleme
-<hr>
+Şuan için planlanan farklı bir geliştirme bulunmamaktadır
 
 📌 Not
 
